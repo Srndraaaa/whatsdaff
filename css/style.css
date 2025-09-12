@@ -1,0 +1,371 @@
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Liquid Glass Navigation */
+.nav-glass {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.42),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.42)
+    );
+    transform: translateX(-50%);
+    animation: liquid 8s linear infinite;
+}
+
+.nav-glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0)
+    );
+    transform: translateX(-50%);
+    animation: liquid 5s linear infinite;
+}
+
+.nav-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes liquid {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Navigation Links */
+nav a {
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to));
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Additional Liquid Effect */
+.liquid-hover {
+    transition: all 0.3s ease;
+}
+
+.liquid-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.1),
+        0 4px 8px rgba(0, 0, 0, 0.06),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Glass Card Effect */
+/* Liquid Glass Card Effect */
+.glass-card-light {
+    position: relative;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border-radius: 20px;
+    box-shadow: 
+        0 6px 18px rgba(16,24,40,0.06),
+        inset 0 0 0 1px rgba(255,255,255,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.45s cubic-bezier(.2,.9,.2,1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.glass-card-light:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.8);
+}
+
+.glass-card-light::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+}
+
+.glass-card-light::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.1)
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.glass-card-light:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.glass-card-light:hover::before {
+    transform: translateX(100%);
+}
+
+.glass-card-light:hover::after {
+    opacity: 1;
+}
+
+/* Card Content Wrapper */
+.card-content {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.05)
+    );
+}
+
+/* Gradient Animation */
+.bg-gradient-animation {
+    background: linear-gradient(-45deg, 
+        rgba(14, 165, 233, 0.8),  /* primary-500 */
+        rgba(217, 70, 239, 0.8),  /* secondary-500 */
+        rgba(56, 189, 248, 0.8),  /* primary-400 */
+        rgba(232, 121, 249, 0.8)  /* secondary-400 */
+    );
+    background-size: 300% 300%;
+    animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Portfolio Card */
+.portfolio-card {
+    overflow: hidden;
+}
+
+.portfolio-card img {
+    transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Social Media Icons */
+.social-icon {
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #3B82F6;
+    transform: translateY(-3px);
+}
+
+/* Fade In Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cursor Follower */
+.cursor-follower {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cursor-follower::before,
+.cursor-follower::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(14, 165, 233, 0.3);
+    border: 1px solid rgba(14, 165, 233, 0.5);
+}
+
+.achievements-container .glass-card-light::before,
+.glass-card-light.achievement-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(1200px 400px at 10% 10%, rgba(255,255,255,0.15), transparent 18%),
+                linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    mix-blend-mode: screen;
+    transform: translateY(0) translateX(-10%);
+    transition: transform 0.9s cubic-bezier(.2,.9,.2,1), opacity 0.45s ease;
+    opacity: 1;
+}
+
+.achievements-container .glass-card-light::after,
+.glass-card-light.achievement-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(60deg, rgba(14,165,233,0.06), rgba(217,70,239,0.04) 40%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.achievements-container .glass-card-light:hover::before,
+.glass-card-light.achievement-card:hover::before {
+    transform: translateX(10%);
+}
+
+.achievements-container .glass-card-light:hover::after,
+.glass-card-light.achievement-card:hover::after {
+    opacity: 1;
+}
+
+.achievements-container .glass-card-light:hover,
+.glass-card-light.achievement-card:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 30px 60px rgba(2,6,23,0.12), inset 0 0 0 1px rgba(255,255,255,0.72);
+}
+
+/* Responsive tweaks for achievements container */
+.achievements-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem; /* ~gap-7 */
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .achievements-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem; /* gap-8 */
+    }
+}
+
+@media (min-width: 1200px) {
+    .achievements-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2.25rem; /* a little larger */
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Card inner content */
+.achievement-card .card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.achievement-card .meta {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    color: rgba(99,102,241,0.85); /* subtle primary tint */
+}
+
+.achievement-card h3 {
+    margin-bottom: .5rem;
+}
+
+.achievement-card p {
+    margin-bottom: 0.8rem;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Navigation */
+.mobile-menu {
+    z-index: 40;
+    transition: all 0.3s ease;
+    transform-origin: top;
+}
+
+.mobile-menu.hidden {
+    display: none;
+}
+
+.mobile-menu a {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+.mobile-menu a:hover {
+    background: rgba(14, 165, 233, 0.1);
+}

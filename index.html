@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        },
+                        secondary: {
+                            50: '#fdf4ff',
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            300: '#f0abfc',
+                            400: '#e879f9',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            700: '#a21caf',
+                        },
+                        neutral: {
+                            50: '#fafafa',
+                            100: '#f4f4f5',
+                            200: '#e4e4e7',
+                            300: '#d4d4d8',
+                            400: '#a1a1aa',
+                            500: '#71717a',
+                            600: '#52525b',
+                            700: '#3f3f46',
+                            800: '#27272a',
+                            900: '#18181b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 font-sans">
+    <!-- Background Gradient -->
+    <div class="fixed inset-0 -z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-400/30 via-purple-400/20 to-blue-500/30"></div>
+        <div class="absolute inset-0 backdrop-blur-3xl"></div>
+    </div>
+
+    <!-- Liquid Glass Navbar -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden md:block w-auto">
+        <div class="nav-glass rounded-full liquid-hover">
+            <div class="nav-content rounded-full">
+                <div class="flex items-center h-14 px-8 gap-12">
+                    <a href="#" class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text hover:from-primary-600 hover:to-secondary-600 transition-all duration-300">
+                        whatsdaff
+                    </a>
+                    <div class="flex items-center space-x-10">
+                        <a href="#about" class="text-neutral-700 hover:text-primary-500 font-medium transition-all duration-300">Tentang Saya</a>
+                        <a href="#portfolio" class="text-neutral-700 hover:text-primary-500 font-medium transition-all duration-300">Portfolio</a>
+                        <a href="#achievements" class="text-neutral-700 hover:text-primary-500 font-medium transition-all duration-300">Pencapaian</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="md:hidden fixed top-0 left-0 right-0 z-50">
+        <div class="nav-glass">
+            <div class="nav-content px-4 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="#" class="text-xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">
+                        whatsdaff
+                    </a>
+                    <button class="text-neutral-700 hover:text-primary-500 transition-all duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Cursor Follower -->
+    <div class="cursor-follower hidden md:block"></div>
+
+    <section id="about" class="min-h-screen relative overflow-hidden cursor-section">
+        <div class="absolute inset-0 bg-gradient-animation opacity-30"></div>
+        <div class="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+        <div class="relative pt-32 px-6 flex items-center min-h-screen">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 id="about-title" class="text-5xl md:text-7xl font-bold mb-8 text-neutral-800 drop-shadow-sm" data-aos="fade-down" data-aos-duration="1200">
+                    <!-- Name will be loaded from JSON -->
+                </h1>
+                <div id="about-content" class="glass-card-light p-10 mb-12 backdrop-blur-md" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Description will be loaded from JSON -->
+                </div>
+                <div id="social-media" class="flex justify-center space-x-8" data-aos="fade-up" data-aos-delay="400">
+                    <!-- Social media links will be loaded from JSON -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-32 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-100/40 to-secondary-100/40"></div>
+        <div class="absolute inset-0 backdrop-blur-xl"></div>
+        <div class="max-w-7xl mx-auto relative">
+            <h2 class="text-4xl font-bold mb-16 text-center text-neutral-800 drop-shadow-sm" data-aos="fade-down" data-aos-duration="1000">
+                Portfolio
+            </h2>
+            <div id="portfolio-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio items will be loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-32 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-animation opacity-20"></div>
+        <div class="absolute inset-0 bg-secondary-100/40 backdrop-blur-xl"></div>
+        <div class="max-w-7xl mx-auto relative">
+            <h2 class="text-4xl font-bold mb-16 text-center text-neutral-800 drop-shadow-sm" data-aos="fade-down" data-aos-duration="1000">
+                Pencapaian
+            </h2>
+            <div id="achievements-items" class="achievements-container grid grid-cols-1 md:grid-cols-2 gap-10" data-aos="fade-up" data-aos-delay="200">
+                <!-- Achievements will be loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS Init -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true
+        });
+    </script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
